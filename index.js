@@ -96,25 +96,49 @@
 // const lName = "gurung";
 // //output: "Anjila Gurung"
 // console.log(`Before name is ${fName.concat(" ", lName)}`);
-// const index = 0;
-// //console.log(fName.charAt(index));
-// name1 = fName.charAt(index).toUpperCase(); // a-> A
-// //console.log(name1);
-// n1 = fName.slice(1, 6);
-// //console.log(fName.slice(1, 6));  // to print njila
+
+// name1 = fName.charAt(0).toUpperCase(); // a-> A
+// n1 = fName.slice(1, 6); // to print njila
 // result1 = name1.concat("", n1);
-// name2 = lName.charAt(index).toUpperCase(); //g->G
-// //console.log(name2);
-// n2 = lName.slice(1, 6);
-// //console.log(lName.slice(1, 6)); // urung
+
+// name2 = lName.charAt(0).toUpperCase(); //g->G
+// n2 = lName.slice(1, 6); // urung
 // result2 = name2.concat("", n2);
 // console.log(`After name is ${result1.concat(" ", result2)}`);
 
 //write js program that add no of format
-const price1 = 48.9823;
-const formattedPrice1 = price1.toFixed(2);
-console.log(Number(formattedPrice1));
-const price2 = 101.0167;
-const formattedPrice2 = price2.toFixed(2);
-console.log(Number(formattedPrice2));
-console.log(Number(formattedPrice1) + Number(formattedPrice2));
+//--decimalprecision---
+// const price1 = 48.9823;
+// const formattedPrice1 = price1.toFixed(2);
+// console.log(Number(formattedPrice1));
+// const price2 = 101.0167;
+// const formattedPrice2 = price2.toFixed(2);
+// console.log(Number(formattedPrice2));
+// console.log(Number(formattedPrice1) + Number(formattedPrice2));
+
+//---coma separated numbers---
+// let num = 7323452568.283;
+
+// // US system en-US
+// const usFormat = num.toLocaleString("en-US");
+// console.log(usFormat); // 7,323,452,568.283
+
+// // India system hi-IN
+// const inFormat = num.toLocaleString("hi-IN");
+// console.log(inFormat); // 7,32,34,52,568.283
+
+//---Number Format Currency---
+const number = 76346.45;
+
+// United state $
+let num = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+}).format(number);
+console.log(num);
+// Indian rupee ₹
+num = new Intl.NumberFormat("hi-IN", {
+  style: "currency",
+  currency: "INR",
+}).format(number);
+console.log(num);
