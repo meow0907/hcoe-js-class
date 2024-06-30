@@ -1,4 +1,4 @@
-//----day2-------
+//----day2------------------------------------------------------------------------
 //ES5
 // person = "Anjila";
 // console.log(person);
@@ -152,7 +152,7 @@
 // }).format(number);
 // console.log(num);
 
-//----day3------
+//----day3------------------------------------------------------------------------
 //write a ES6 to sum 2 value a=110, b=200
 //fn declare
 // const add = (a, b) => {
@@ -177,7 +177,7 @@
 //   console.log("hello");
 // })();
 
-//write js to reverse a number x=32243: o/p: 34223
+//write js to reverse a number x=32243: o/p: 34223-------------------
 // const reverser = (num) => Number(String(num).split("").reverse().join(""));
 // // {
 // // const string = String(num);
@@ -189,7 +189,7 @@
 // const answer = reverser(32243);
 // console.log(answer);
 
-// write a js to convert temperature to and from celsius, fahrenheit
+// write a js to convert temperature to and from celsius, fahrenheit--------------
 //c/5 =(f-32)/9
 
 // const conversion = (value, temp = "c") => {
@@ -199,7 +199,7 @@
 // const result = conversion(60, "f");
 // console.log(result);
 
-//--object----
+//--object-------------------------------------------
 // const laptop={
 //   model:"Apple",
 //   Name:"M1 Pro",
@@ -231,7 +231,7 @@
 // const{model,fullName,...rest}=laptop;
 // console.log(rest);
 
-//
+//----------------------------------
 //headphone,77.84,7%
 // const prod = {
 //   name: "headphones",
@@ -248,32 +248,121 @@
 // const newProd = getNewProduct(prod);
 // console.log(newProd);
 
-// const compareArrays =(a,b)=>{
-//   (a.length===b.length)? false:
-// }
+//-------------------------------------
+// let food1 = ["Noodle", "Pasta", "Ice-cream"];
+// let food2 = ["Fries", "Ice-cream", "Pizza"];
 
-let food1 = ["Noodle", "Pasta", "Ice-cream"];
-let food2 = ["Fries", "Ice-cream", "Pizza"];
+// const getCommon = (arr1, arr2) => {
+//   return arr1.filter((item) => arr2.includes(item));
+// };
+// const result = getCommon(food1, food2);
+// console.log(result);
 
-const compareArrays = (a, b) => {
-  // Loop for food1
-  for (let i = 0; i < food1.length; i++) {
-    // Loop for food2
-    for (let j = 0; j < food2.length; j++) {
-      // Compare the element of each and
-      // every element from both of the
-      // arrays
-      if (food1[i] === food2[j]) {
-        // console.log(`The common food item is ${food1[i]}`);
-        // Return if common element found
-        //return true;
-        return food1[i];
-      }
-    }
+// const compareArrays = (a, b) => {
+//   // Loop for food1
+//   for (let i = 0; i < food1.length; i++) {
+//     // Loop for food2
+//     for (let j = 0; j < food2.length; j++) {
+//       // Compare the element of each and
+//       // every element from both of the
+//       // arrays
+//       if (food1[i] === food2[j]) {
+//         // console.log(`The common food item is ${food1[i]}`);
+//         // Return if common element found
+//         //return true;
+//         return food1[i];
+//       }
+//     }
+//   }
+
+//   // Return if no common element exist
+//   //return false;
+// };
+
+// console.log(compareArrays(food1, food2));
+
+//--------day4-------------------------------------------------------
+//sort the array using sort method in ascending order
+
+// const classes = [
+//   { name: "Ram", age: 20 },
+//   { name: "Sita", age: 15 },
+//   { name: "Shyam", age: 40 },
+// ];
+// const ageSorter = (arr) => {
+//   return arr.sort((a, b) => a.age - b.age);
+// };
+// const res = ageSorter(classes);
+// console.log(res);
+
+//-------------------------------------------------
+//const countries = ["Nepal", "USA", "Australia"];
+// const compSorter = (arr) => {
+//   return arr.sort((a, b) => b.length - a.length);
+// };
+
+// const res = compSorter(countries);
+// console.log(res);
+
+// const largestCountry = (arr) => {
+//   let largest = "";
+//   arr.map((country) => {
+//     if (largest.length < country.length) {
+//       largest = country;
+//     }
+//   });
+//   return largest;
+// };
+// console.log(largestCountry(countries));
+
+//----------------------------------------------
+//compare two role and return boolean if role matches
+const sysRole = ["admin", "manager"];
+const userRole = ["user", "receptionist", "manager"];
+const roleChecker = (arr1, arr2) => arr1.some((item) => arr2.includes(item));
+const result = roleChecker(sysRole, userRole);
+console.log(result);
+
+//----------------------------------------------------
+//Get the total number of characters by eye color (hint. a map of eye color to count)
+const characters = [
+  {
+    name: "Luke Skywalker",
+    height: "172",
+    mass: "77",
+    eye_color: "blue",
+    gender: "male",
+  },
+  {
+    name: "Darth Vader",
+    height: "202",
+    mass: "136",
+    eye_color: "yellow",
+    gender: "male",
+  },
+  {
+    name: "Leia Organa",
+    height: "150",
+    mass: "49",
+    eye_color: "brown",
+    gender: "female",
+  },
+  {
+    name: "Anakin Skywalker",
+    height: "188",
+    mass: "84",
+    eye_color: "blue",
+    gender: "male",
+  },
+];
+const eyeColorCount = characters.reduce((acc, character) => {
+  const color = character.eye_color;
+  if (acc[color]) {
+    acc[color]++;
+  } else {
+    acc[color] = 1;
   }
+  return acc;
+}, {});
 
-  // Return if no common element exist
-  //return false;
-};
-
-console.log(compareArrays(food1, food2));
+console.log(eyeColorCount);
