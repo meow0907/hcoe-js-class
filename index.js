@@ -106,6 +106,15 @@
 // result2 = name2.concat("", n2);
 // console.log(`After name is ${result1.concat(" ", result2)}`);
 
+//---sir's ---
+// const fName = "anjila";
+// const lName = "gurung";
+// const firstName = fName
+//   .slice(0, 1) //a
+//   .toUpperCase() //A
+//   .concat(fName.slice(1, fName.length)); //njila
+// console.log(firstName);
+
 //write js program that add no of format
 //--decimalprecision---
 // const price1 = 48.9823;
@@ -128,17 +137,143 @@
 // console.log(inFormat); // 7,32,34,52,568.283
 
 //---Number Format Currency---
-const number = 76346.45;
+// const number = 76346.45;
 
-// United state $
-let num = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-}).format(number);
-console.log(num);
-// Indian rupee ₹
-num = new Intl.NumberFormat("hi-IN", {
-  style: "currency",
-  currency: "INR",
-}).format(number);
-console.log(num);
+// // United state $
+// let num = new Intl.NumberFormat("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// }).format(number);
+// console.log(num);
+// // Indian rupee ₹
+// num = new Intl.NumberFormat("hi-IN", {
+//   style: "currency",
+//   currency: "INR",
+// }).format(number);
+// console.log(num);
+
+//----day3------
+//write a ES6 to sum 2 value a=110, b=200
+//fn declare
+// const add = (a, b) => {
+//   //const sum = a + b;
+//   return a + b; //a and b paramters
+//   //alert(`The sum is ${sum}`);
+// };
+// //fn execution
+// const sum = add(110, 200);
+// console.log(sum);
+
+//--default function num=5
+//--parameterized ->without num=5
+// const paging = (num = 5) => {
+//   console.log(num);
+// };
+// paging(1); //1
+// paging(); //5
+
+//--IIFE
+// (() => {
+//   console.log("hello");
+// })();
+
+//write js to reverse a number x=32243: o/p: 34223
+// const reverser = (num) => Number(String(num).split("").reverse().join(""));
+// // {
+// // const string = String(num);
+// // const step2 = string.split(""); //["3","2",..]
+// // const step3 = step2.reverse(); //["3","4",...]
+// // const step4 = step3.join("");
+// // return step4;
+// // };
+// const answer = reverser(32243);
+// console.log(answer);
+
+// write a js to convert temperature to and from celsius, fahrenheit
+//c/5 =(f-32)/9
+
+// const conversion = (value, temp = "c") => {
+//   const ans = temp === "c" ? ((value - 32) / 9) * 5 : (value / 5) * 9 + 32;
+//   return ans;
+// };
+// const result = conversion(60, "f");
+// console.log(result);
+
+//--object----
+// const laptop={
+//   model:"Apple",
+//   Name:"M1 Pro",
+//   modelyear: 2021,
+//   age:()=>{
+//     return 2024-laptop.modelyear;
+//   },
+//   fullName: function(){
+//     return this.model+" "+this.Name;
+//   },
+// };
+
+// //Read
+// const laptopModel = laptop.model;
+// const laptopAge = laptop.age();
+// const laptopFullname = laptop.fullName();
+// console.log(laptopModel,laptopAge,laptopFullname);
+
+// //update
+// laptop.model="Ball";
+// console.log(laptop);
+
+// //delete
+// delete laptop.model;
+// console.log(laptop);
+// //instead use destructure
+
+// //destructure
+// const{model,fullName,...rest}=laptop;
+// console.log(rest);
+
+//
+//headphone,77.84,7%
+// const prod = {
+//   name: "headphones",
+//   price: 83.7,
+//   discount: "7%",
+// };
+// const getNewProduct = (product) => {
+//   const { price, discount, ...rest } = product;
+//   const discountAmount = price > 100 ? 0.1 * price : 0.07 * price;
+//   rest.price = price - discountAmount;
+//   rest.discount = price > 100 ? "10%" : "7%";
+//   return rest;
+// };
+// const newProd = getNewProduct(prod);
+// console.log(newProd);
+
+// const compareArrays =(a,b)=>{
+//   (a.length===b.length)? false:
+// }
+
+let food1 = ["Noodle", "Pasta", "Ice-cream"];
+let food2 = ["Fries", "Ice-cream", "Pizza"];
+
+const compareArrays = (a, b) => {
+  // Loop for food1
+  for (let i = 0; i < food1.length; i++) {
+    // Loop for food2
+    for (let j = 0; j < food2.length; j++) {
+      // Compare the element of each and
+      // every element from both of the
+      // arrays
+      if (food1[i] === food2[j]) {
+        // console.log(`The common food item is ${food1[i]}`);
+        // Return if common element found
+        //return true;
+        return food1[i];
+      }
+    }
+  }
+
+  // Return if no common element exist
+  //return false;
+};
+
+console.log(compareArrays(food1, food2));
