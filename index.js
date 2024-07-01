@@ -125,7 +125,7 @@
 // console.log(Number(formattedPrice2));
 // console.log(Number(formattedPrice1) + Number(formattedPrice2));
 
-//---coma separated numbers---
+// ---coma separated numbers---
 // let num = 7323452568.283;
 
 // // US system en-US
@@ -317,11 +317,11 @@
 
 //----------------------------------------------
 //compare two role and return boolean if role matches
-const sysRole = ["admin", "manager"];
-const userRole = ["user", "receptionist", "manager"];
-const roleChecker = (arr1, arr2) => arr1.some((item) => arr2.includes(item));
-const result = roleChecker(sysRole, userRole);
-console.log(result);
+// const sysRole = ["admin", "manager"];
+// const userRole = ["user", "receptionist", "manager"];
+// const roleChecker = (arr1, arr2) => arr1.some((item) => arr2.includes(item));
+// const result = roleChecker(sysRole, userRole);
+// console.log(result);
 
 //----------------------------------------------------
 //Get the total number of characters by eye color (hint. a map of eye color to count)
@@ -355,14 +355,32 @@ const characters = [
     gender: "male",
   },
 ];
-const eyeColorCount = characters.reduce((acc, character) => {
-  const color = character.eye_color;
-  if (acc[color]) {
-    acc[color]++;
-  } else {
-    acc[color] = 1;
-  }
-  return acc;
-}, {});
+// const eyeColorCount = characters.reduce((acc, character) => {
+//   const color = character.eye_color;
+//   if (acc[color]) {
+//     acc[color]++;
+//   } else {
+//     acc[color] = 1;
+//   }
+//   return acc;
+// }, {});
 
-console.log(eyeColorCount);
+//console.log(eyeColorCount);
+//Get an array of all names
+const arrname = characters.map((x) => x.name);
+console.log(arrname);
+
+// Get an array of all heights
+const arrheight = characters.map((x) => x.height);
+console.log(arrheight);
+
+//Get an array of objects with just name and height properties
+const arrobj = characters.map(({ name, height }) => ({ [name]: height }));
+console.log(arrobj);
+
+//Get an array of all first names
+
+const fname = characters.map((x) => x.name.split(" ")[0]);
+console.log(fname);
+
+// Get the total mass of all characters
